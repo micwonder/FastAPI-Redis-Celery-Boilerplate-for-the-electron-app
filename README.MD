@@ -1,1 +1,1 @@
-python main.py --env local|dev|prod
+python main.py --env local | dev | prod --debug(optional)

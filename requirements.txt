@@ -1,0 +1,12 @@
+click
+uvicorn
+pydantic==1.10.7
+python-dotenv
+fastapi
+bcrypt
+SQLAlchemy
+aiomysql
+PyJWT
+alembic
+gunicorn
+redis
