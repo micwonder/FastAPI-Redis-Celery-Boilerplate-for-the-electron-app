@@ -140,13 +140,10 @@ class UserService:
         print("~~~~~~~~~~~~~~~~~~~~~~~ login request")
         ts = now()
         email, phone = validation(email=email, phone="")
-        try:
-            query = select(User).where(
-                    and_(User.email == email, User.deleted_at == None))
-            result = await session.execute(query)
-            user = result.scalars().first()
-        except Exception as e:
-            raise UnprocessableEntity(e.args[0])
+        query = select(User).where(
+                and_(User.email == email, User.deleted_at == None))
+        result = await session.execute(query)
+        user = result.scalars().first()
         
         user_availability(user=user)
         if not bcrypt.checkpw(password.encode('utf-8'), str(user.password).encode('utf-8')):

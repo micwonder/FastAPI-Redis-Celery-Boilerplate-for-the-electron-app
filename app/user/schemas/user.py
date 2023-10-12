@@ -1,21 +1,22 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 class GetUserListResponseSchema(BaseModel):
     id: int = Field(..., description="ID")
-    email: str | None = Field(None, description="Email")
+    email: Optional[str] = Field(None, description="Email")
     name: str = Field(..., description="Name")
     user_type: str = Field(..., description="User type")
     class Config:
         orm_mode = True
 
 class CreateUserRequestSchema(BaseModel):
-    email: str | None = Field(None, description="Email")
+    email: Optional[str] = Field(None, description="Email")
     password: str = Field(..., description="Password")
     password_confirmation: str = Field(..., description="Password Confirmation")
     name: str = Field(..., description="Name")
 
 class UpdateUserRequestSchema(BaseModel):
-    name: str | None = Field(None, description="Name")
+    name: Optional[str] = Field(None, description="Name")
     # user_type: str | None = Field(None, description="User type")
 
 class ResetPasswordRequestSchema(BaseModel):
