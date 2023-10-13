@@ -53,10 +53,10 @@ class UserService:
     @Transactional()
     async def create_user(
         self,
+        name: str,
         email: str,
         password: str,
         password_confirmation: str,
-        name: str,
     ) -> dict:
         print("~~~*~~~*~~~*~~~*~~~*~~~*~~~ create user request ~~~*~~~*~~~*~~~*~~~*~~~*~~~")
         if password != password_confirmation:
@@ -89,7 +89,7 @@ class UserService:
         print("create user success")
         return {
             "success": True,
-            "message": "Email verification code sent successfully.",
+            "message": "User created successfully.",
             "token": TokenHelper.encode(payload={"nonce": random.randint(100000, 999999)}, expire_period=300),
         }
 
@@ -149,7 +149,7 @@ class UserService:
         if not bcrypt.checkpw(password.encode('utf-8'), str(user.password).encode('utf-8')):
             raise UnauthorizedException(message="Invalid username of password.")
         
-        print(user.id, user.email, user.phone, password)
+        print(user.id, user.email, password)
         print("login request success")
         response = {
             "success": True,

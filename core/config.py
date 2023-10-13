@@ -44,7 +44,7 @@ def get_config():
         "local": LocalConfig(),
         "prod": ProductionConfig(),
     }
-    return config_type["prod"]
+    return config_type[env]
 
 
 config: Config = get_config()
