@@ -8,8 +8,8 @@ class Config(BaseSettings):
     DEBUG: bool = True
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
-    WRITER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
-    READER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
+    WRITER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
+    READER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
     JWT_SECRET_KEY: str = "e168f2e2ec66fe69378dc2f33a3ec2a1143a52ab98ca791c0b1e9a0918742e64"
     JWT_ALGORITHM: str = "HS256"
     SENTRY_SDN: str = None
@@ -20,15 +20,15 @@ class Config(BaseSettings):
 
 
 class DevelopmentConfig(Config):
-    WRITER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
-    READER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
+    WRITER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
+    READER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
     REDIS_HOST: str = "redis"
     REDIS_PORT: int = 6379
 
 
 class LocalConfig(Config):
-    WRITER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
-    READER_DB_URL: str = f"mysql+aiomysql://projectx_root:123456@localhost:3306/beta_projectx_db"
+    WRITER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
+    READER_DB_URL: str = f"mysql+aiomysql://root:123456@localhost:3306/beta_projectx_db"
 
 
 class ProductionConfig(Config):
