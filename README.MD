@@ -8,7 +8,7 @@
 ** Database creation ("beta_projectx_db") **
 ** User creation ("projectx_root") **
 ** User Grant ("projectx_root") **
-** SQL execution (https://github.com/ObiTracks/px-backend/beta_projectx_db.sql) **
+** SQL execution (https://github.com/ObiTracks/px-backend/blob/main/beta_projectx_db.sql) **
 
 
 ### Python Env Setting
